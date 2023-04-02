@@ -29,7 +29,7 @@ def get_todo_list():
         for element in employee_todo.json():
             temp_dict = {
                         "username": Username,
-                        "element": element.get('title'),
+                        "task": element.get('title'),
                         "completed": element.get("completed")}
             hold = temp_dict.copy()
             temp.append(hold)
@@ -41,7 +41,7 @@ def get_todo_list():
         temp.clear()
         temp_dict.clear()
         employee_id += 1
-
+        break
     with open(filename, 'w+') as fileX:
         json.dump(employee_id_dict, fileX)
 
