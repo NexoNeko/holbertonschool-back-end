@@ -7,9 +7,11 @@ import sys
 def get_todo_list(employee_id):
     """Gets the todo list from the employees"""
     employee = requests.get(
-        "https://jsonplaceholder.typicode.com/users?id={}".format(employee_id))
+        "https://jsonplaceholder.typicode.com/users?id={}"
+        .format(employee_id))
     employee_todo = requests.get(
-        "https://jsonplaceholder.typicode.com/todos?userId={}".format(employee_id))
+        "https://jsonplaceholder.typicode.com/todos?userId={}"
+        .format(employee_id))
 
     employee_name = None
     number_tasks_done = []
@@ -24,7 +26,7 @@ def get_todo_list(employee_id):
             number_tasks_done.append(value.get('title'))
 
     print("Employee {} is done with tasks({}/{}):".format
-        (employee_name, len(number_tasks_done), number_tasks_total))
+            (employee_name, len(number_tasks_done), number_tasks_total))
 
     for i in number_tasks_done:
         print("{} {}".format('\t', i))
