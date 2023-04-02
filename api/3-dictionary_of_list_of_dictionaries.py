@@ -33,11 +33,9 @@ def get_todo_list():
                         "completed": element.get("completed")}
             hold = temp_dict.copy()
             temp.append(hold)
-        
-        
+
         newlist = temp.copy()
         employee_id_dict.update({employee_id: newlist})
-
         temp.clear()
         temp_dict.clear()
         employee_id += 1
