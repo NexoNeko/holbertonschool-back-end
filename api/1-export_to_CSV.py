@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Api test script """
+import csv
 import requests
 import sys
-import csv
 
 
 def get_todo_list(employee_id):
@@ -19,12 +19,13 @@ def get_todo_list(employee_id):
 
     temp = []
     with open(filename, 'w+') as csvfile:
-        csvwriter = csv.writer(csvfile)
+        csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for value in employee.json():
             Username = value.get('username')
+            temp.append(employee_id)
             temp.append(Username)
         for task in employee_todo.json():
-            temp.extend([task.get('completed'), task.get('title')])
+            temp.extend([str(task.get("completed")), task.get('title')])
             csvwriter.writerow(temp)
             temp = temp[:-2]
     csvfile.close()
