@@ -7,7 +7,7 @@ import csv
 
 def get_todo_list(employee_id):
     """Gets the todo list from the employees"""
-    
+
     filename = "{}.csv".format(employee_id)
 
     employee = requests.get(
