@@ -30,11 +30,15 @@ def get_todo_list():
         for task in employee_todo.json():
             temp_dict = {
                         "username": Username,
-                        "task": task.get('title'),
-                        "completed": task.get("completed")}
+                        "completed": task.get("completed"),
+                        "task": task.get('title')}
             temp.append(temp_dict)
+        
+        newlist = temp.copy()
+        employee_id_dict.update({employee_id: newlist})
 
-        employee_id_dict.update({employee_id: temp})
+        temp.clear()
+        temp_dict.clear()
         employee_id += 1
 
     with open(filename, 'w+') as fileX:
