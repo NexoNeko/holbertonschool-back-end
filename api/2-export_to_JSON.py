@@ -25,8 +25,8 @@ def get_todo_list(employee_id):
 
         for task in employee_todo.json():
             temp_dict = {"task": task.get('title'),
-                    "completed": task.get("completed"),
-                    "username": Username}
+                        "completed": task.get("completed"),
+                        "username": Username}
             temp.append(temp_dict)
 
         employee_id_dict = {employee_id: temp}
