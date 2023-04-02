@@ -26,7 +26,7 @@ def get_todo_list(employee_id):
             number_tasks_done.append(value.get('title'))
 
     print("Employee {} is done with tasks({}/{}):".format
-            (employee_name, len(number_tasks_done), number_tasks_total))
+        (employee_name, len(number_tasks_done), number_tasks_total))
 
     for i in number_tasks_done:
         print("{} {}".format('\t', i))
